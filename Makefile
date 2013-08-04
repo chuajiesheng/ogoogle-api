@@ -16,7 +16,7 @@ SYNTAX     := -syntax camlp4o
 ## Required binaries
 OCAMLFIND  := ocamlfind
 OCAMLDEP   := $(OCAMLFIND) ocamldep $(SYNTAX)
-OCAMLC     := $(OCAMLFIND) ocamlc
+OCAMLC     := $(OCAMLFIND) ocamlc -annot
 
 BUILDDIR := _build
 
@@ -65,6 +65,7 @@ $(BUILDDIR):
 $(LIBDIR)/$(PKG_NAME).cma: $(BUILDDIR) $(call objs,$(BUILDDIR),cmo,$(FILES)) | $(LIBDIR)
 	ocamlc -a -o $@ $(GENERATE_DEBUG) \
           $(call depsort,$(BUILDDIR),cmo,$(INC),$(FILES))
+	cp $(BUILDDIR)/*/*.annot .
 
 ${BUILDDIR}/%.cmi: %.mli
 	${OCAMLC} -c ${SYNTAX} ${INC} ${INC_DIRS} $(GENERATE_DEBUG) $< -o $@
