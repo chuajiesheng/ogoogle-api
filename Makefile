@@ -76,7 +76,7 @@ ${BUILDDIR}/%.cmo: %.ml
 ## Installation
 
 META: META.in
-	sed -e 's#@@PKG_NAME@@#$(PKG_NAME)#g' \
+	sed -ie 's#@@PKG_NAME@@#$(PKG_NAME)#g' \
 		-e 's#@@PKG_VERS@@#$(PKG_VERS)#g' \
 		-e 's#@@PKG_DESC@@#$(PKG_DESC)#g' \
 		-e 's#@@REQUIRES@@#$(PACKAGES)#g' \
