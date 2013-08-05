@@ -10,4 +10,4 @@ end
 val empty_params : unit -> params Js.t
 
 val authorize :
-  params Js.t -> (('a, Token.oauth_token -> unit Js.t) Js.meth_callback) -> unit
+  params Js.t -> (('a, Token.oauth_token -> unit) Js.meth_callback) -> unit

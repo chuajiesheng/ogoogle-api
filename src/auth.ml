@@ -11,7 +11,7 @@ let empty_params () = Js.Unsafe.obj [||]
 
 let authorize
     (p : params Js.t)
-    (m : (('a, Token.oauth_token -> unit Js.t) Js.meth_callback)) : unit =
+    (m : (('a, Token.oauth_token -> unit) Js.meth_callback)) : unit =
   Js.Unsafe.fun_call
     (Js.Unsafe.variable "gapi.auth.authorize")
     [|Js.Unsafe.inject p|]
