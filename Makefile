@@ -78,10 +78,10 @@ ${BUILDDIR}/%.cmo: %.ml
 
 META: META.in
 	sed -ie 's#@@PKG_NAME@@#$(PKG_NAME)#g' \
-		-e 's#@@PKG_VERS@@#$(PKG_VERS)#g' \
-		-e 's#@@PKG_DESC@@#$(PKG_DESC)#g' \
-		-e 's#@@REQUIRES@@#$(PACKAGES)#g' \
-		-e 's#@@ARCHIVES_BYTE@@#$(PKG_NAME).cma#g' \
+		-ie 's#@@PKG_VERS@@#$(PKG_VERS)#g' \
+		-ie 's#@@PKG_DESC@@#$(PKG_DESC)#g' \
+		-ie 's#@@REQUIRES@@#$(PACKAGES)#g' \
+		-ie 's#@@ARCHIVES_BYTE@@#$(PKG_NAME).cma#g' \
 		$< > $@
 
 CMI=$(wildcard $(addsuffix /*.cmi,$(addprefix $(BUILDDIR)/,$(DIRS))))
