@@ -7,11 +7,7 @@ class type params = object
   method scope : Js.js_string Js.t Js.js_array Js.t Js.prop
 end
 
-let empty_params () = Js.Unsafe.obj [||]
+val empty_params : unit -> params Js.t
 
-let authorize
-    (p : params Js.t)
-    (m : (('a, Token.oauth_token -> unit Js.t) Js.meth_callback)) : unit =
-  Js.Unsafe.fun_call
-    (Js.Unsafe.variable "gapi.auth.authorize")
-    [|Js.Unsafe.inject p|]
+val authorize :
+  params Js.t -> (('a, Token.oauth_token -> unit Js.t) Js.meth_callback) -> unit
