@@ -65,7 +65,7 @@ $(BUILDDIR):
 $(LIBDIR)/$(PKG_NAME).cma: $(BUILDDIR) $(call objs,$(BUILDDIR),cmo,$(FILES)) | $(LIBDIR)
 	ocamlc -a -o $@ $(GENERATE_DEBUG) \
           $(call depsort,$(BUILDDIR),cmo,$(INC),$(FILES))
-	cp $(BUILDDIR)/*/*.annot .
+	cp $(BUILDDIR)/*/*.annot src/
 
 ${BUILDDIR}/%.cmi: %.mli
 	${OCAMLC} -c ${SYNTAX} ${INC} ${INC_DIRS} $(GENERATE_DEBUG) $< -o $@
