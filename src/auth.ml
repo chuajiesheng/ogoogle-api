@@ -14,7 +14,7 @@ let authorize
     (m : (('a, Token.oauth_token -> unit) Js.meth_callback)) : unit =
   Js.Unsafe.fun_call
     (Js.Unsafe.variable "gapi.auth.authorize")
-    [|Js.Unsafe.inject p|]
+    [|Js.Unsafe.inject p; Js.Unsafe.inject m|]
 
 (** gapi.client.setApiKey(apiKey) **)
 
