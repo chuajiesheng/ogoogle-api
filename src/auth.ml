@@ -15,3 +15,9 @@ let authorize
   Js.Unsafe.fun_call
     (Js.Unsafe.variable "gapi.auth.authorize")
     [|Js.Unsafe.inject p|]
+
+(** gapi.client.setApiKey(apiKey) **)
+
+let set_api_key (key : Js.js_string Js.t) : unit =
+  Js.Unsafe.fun_call (Js.Unsafe.variable "gapi.client.setApiKey")
+    [|Js.Unsafe.inject key |]

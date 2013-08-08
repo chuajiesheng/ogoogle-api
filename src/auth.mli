@@ -11,3 +11,6 @@ val empty_params : unit -> params Js.t
 
 val authorize :
   params Js.t -> (('a, Token.oauth_token -> unit) Js.meth_callback) -> unit
+
+val set_api_key:
+  Js.js_string Js.t -> unit
