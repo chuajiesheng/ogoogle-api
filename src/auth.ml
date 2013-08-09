@@ -1,5 +1,4 @@
 (* gapi.auth.authorize(params, callback) *)
-
 class type params = object
   method client_id_ : Js.js_string Js.t Js.writeonly_prop
   method immediate_ : bool Js.t Js.prop
@@ -17,7 +16,6 @@ let authorize
     [|Js.Unsafe.inject p; Js.Unsafe.inject m|]
 
 (* gapi.auth.init(callback) *)
-
 let init
     (m : ('a, unit -> unit) Js.meth_callback) : unit =
   Js.Unsafe.fun_call
@@ -25,12 +23,10 @@ let init
     [|Js.Unsafe.inject m|]
 
 (* gapi.auth.getToken() *)
-
 let get_token () : Token.oauth_token Js.t =
   Js.Unsafe.fun_call (Js.Unsafe.variable "gapi.auth.getToken") [||]
 
 (* gapi.client.setApiKey(apiKey) *)
-
 let set_api_key (key : Js.js_string Js.t) : unit =
   Js.Unsafe.fun_call (Js.Unsafe.variable "gapi.client.setApiKey")
     [|Js.Unsafe.inject key |]
