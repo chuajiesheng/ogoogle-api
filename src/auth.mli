@@ -17,6 +17,10 @@ val authorize :
 val init :
   ('a, unit -> unit) Js.meth_callback -> unit
 
+(* gapi.auth.getToken() *)
+
+val get_token : unit -> Token.oauth_token Js.t
+
 (* gapi.client.setApiKey(apiKey) *)
 
 val set_api_key:
