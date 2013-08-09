@@ -18,6 +18,9 @@ val init :
 (* gapi.auth.getToken() *)
 val get_token : unit -> Token.oauth_token Js.t
 
+(* gapi.auth.setToken(token) *)
+val set_token : Token.oauth_token Js.t -> unit
+
 (* gapi.client.setApiKey(apiKey) *)
 val set_api_key:
   Js.js_string Js.t -> unit

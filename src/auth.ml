@@ -26,6 +26,11 @@ let init
 let get_token () : Token.oauth_token Js.t =
   Js.Unsafe.fun_call (Js.Unsafe.variable "gapi.auth.getToken") [||]
 
+(* gapi.auth.setToken(token) *)
+let set_token (t : Token.oauth_token Js.t) : unit =
+  Js.Unsafe.fun_call
+    (Js.Unsafe.variable "gapi.auth.setToken") [|Js.Unsafe.inject t|]
+
 (* gapi.client.setApiKey(apiKey) *)
 let set_api_key (key : Js.js_string Js.t) : unit =
   Js.Unsafe.fun_call (Js.Unsafe.variable "gapi.client.setApiKey")
