@@ -12,6 +12,11 @@ val empty_params : unit -> params Js.t
 val authorize :
   params Js.t -> (('a, (Token.oauth_token Js.t) -> unit) Js.meth_callback) -> unit
 
+(* gapi.auth.init(callback) *)
+
+val init :
+  ('a, unit -> unit) Js.meth_callback -> unit
+
 (* gapi.client.setApiKey(apiKey) *)
 
 val set_api_key:

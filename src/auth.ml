@@ -17,6 +17,13 @@ let authorize
     [|Js.Unsafe.inject p; Js.Unsafe.inject m|]
 
 (* gapi.auth.init(callback) *)
+
+let init
+    (m : ('a, unit -> unit) Js.meth_callback) : unit =
+  Js.Unsafe.fun_call
+    (Js.Unsafe.variable "gapi.auth.init")
+    [|Js.Unsafe.inject m|]
+
 (* gapi.client.setApiKey(apiKey) *)
 
 let set_api_key (key : Js.js_string Js.t) : unit =
