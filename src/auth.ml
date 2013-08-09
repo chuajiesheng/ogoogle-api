@@ -1,4 +1,4 @@
-(** gapi.auth.authorize(params, callback) **)
+(* gapi.auth.authorize(params, callback) *)
 
 class type params = object
   method client_id_ : Js.js_string Js.t Js.writeonly_prop
@@ -16,7 +16,8 @@ let authorize
     (Js.Unsafe.variable "gapi.auth.authorize")
     [|Js.Unsafe.inject p; Js.Unsafe.inject m|]
 
-(** gapi.client.setApiKey(apiKey) **)
+(* gapi.auth.init(callback) *)
+(* gapi.client.setApiKey(apiKey) *)
 
 let set_api_key (key : Js.js_string Js.t) : unit =
   Js.Unsafe.fun_call (Js.Unsafe.variable "gapi.client.setApiKey")
