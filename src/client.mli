@@ -1,11 +1,6 @@
 (* gapi.client.load(name, version, callback) *)
-let load
-    (name : Js.js_string Js.t)
-    (ver : Js.js_string Js.t)
-    (callback : ('a, unit -> unit) Js.meth_callback) : unit =
-  Js.Unsafe.fun_call
-    (Js.Unsafe.variable "gapi.client.load")
-    [|Js.Unsafe.inject name; Js.Unsafe.inject ver; Js.Unsafe.inject callback|]
+val load : Js.js_string Js.t ->
+  Js.js_string Js.t -> ('a, unit -> unit) Js.meth_callback -> unit
 
 (*
    gapi.client.HttpRequest
@@ -28,11 +23,9 @@ class type request_args = object
   method params_ : 'a (* object *)
   method headers_ : 'b (* object *)
   method body_ : 'c (* string | object *)
-  method callback_ : ('d, 'e -> unit) Js.meth_callback (* function *)
+  method callback_ : ('a, 'b -> unit) Js.meth_callback (* function *)
 end
 
-let empty_request_args () = Js.Unsafe.obj [||]
+val empty_request_args : unit -> 'a
 
-let request (args : request_args Js.t) : httpRequest Js.t =
-    Js.Unsafe.fun_call
-      (Js.Unsafe.variable "gapi.client.request") [| Js.Unsafe.inject args|]
+val request : request_args Js.t -> httpRequest Js.t
