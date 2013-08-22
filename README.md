@@ -7,6 +7,13 @@ done via [Js_of_OCaml](http://ocsigen.org/js_of_ocaml) library
 ##Installation
     make install 
 
+##Dependency
+1. lwt ( >= 2.4 )
+2. deriving-ocsigen
+3. ocamlfind
+
+Best to do the installation via [OPAM](http://opam.ocamlpro.com/index.html) in case you have dependency issues.
+
 ##Usage
 Code; Link to ogoogle-api package; Generate .js
 
@@ -25,5 +32,5 @@ There is a example for every method present in the binding.
 See [examples](https://github.com/chuajiesheng/ogoogle-api-examples) repository
 
 ##Notes
-  1. After add/changing .mli files, there is a need to "make distclean" to update the .depend files.
-  2. As the library currently bind the basic authentication function, API-specific function would still need to be done via `Js.Unsafe.fun_call`
+1. After add/changing .mli files, there is a need to "make distclean" to update the .depend files.
+2. As the library currently bind the basic authentication function, API-specific function would still need to be done via `Js.Unsafe.fun_call`
