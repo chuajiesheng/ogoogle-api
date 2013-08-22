@@ -43,5 +43,22 @@ class type rpcRequest = object
 end
 
 (* gapi.client.rpcRequest(method,name,rpcParams) *)
+val empty_rpc_request_args : unit -> 'a
+
 val rpc_request :
   Js.js_string Js.t -> Js.js_string Js.t -> 'a Js.t -> rpcRequest Js.t
+
+(* gapi.client.HttpBatch *)
+val empty_opt_params : unit -> 'a
+
+class type opt_params = object
+  method id_ : Js.js_string Js.t Js.prop
+  method callback_ : ('a, 'b -> 'c -> unit) Js.meth_callback
+end
+
+class type httpBatch = object
+  method add : httpRequest Js.t -> opt_params Js.t -> unit Js.meth
+  method execute : ('a, 'b -> 'c -> unit) Js.meth_callback -> 'd Js.meth
+end
+
+val new_http_batch : unit -> httpBatch Js.t

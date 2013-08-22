@@ -50,9 +50,28 @@ class type rpcRequest = object
 end
 
 (* gapi.client.rpcRequest(method,name,rpcParams) *)
+let empty_rpc_request_args () = Js.Unsafe.obj [||]
+
 let rpc_request (meth : Js.js_string Js.t) (version : Js.js_string Js.t)
     (rpc_params : 'a Js.t) : rpcRequest Js.t =
   Js.Unsafe.fun_call
     (Js.Unsafe.variable "gapi.client.rpcRequest")
     [| Js.Unsafe.inject meth; Js.Unsafe.inject version;
        Js.Unsafe.inject rpc_params|]
+
+(* gapi.client.HttpBatch *)
+let empty_opt_params () = Js.Unsafe.obj [||]
+
+class type opt_params = object
+  method id_ : Js.js_string Js.t Js.prop
+  method callback_ : ('a, 'b -> 'c -> unit) Js.meth_callback
+end
+
+class type httpBatch = object
+  method add : httpRequest Js.t -> opt_params Js.t -> unit Js.meth
+  method execute : ('a, 'b -> 'c -> unit) Js.meth_callback -> 'd Js.meth
+end
+
+let new_http_batch () : httpBatch Js.t =
+    Js.Unsafe.fun_call
+      (Js.Unsafe.variable "gapi.client.newHttpBatch") [||]
