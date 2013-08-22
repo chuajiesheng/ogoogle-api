@@ -68,8 +68,8 @@ class type opt_params = object
 end
 
 class type httpBatch = object
-  method add : httpRequest Js.t -> opt_params Js.t -> unit Js.meth
-  method execute : ('a, 'b -> 'c -> unit) Js.meth_callback -> 'd Js.meth
+  method add_ : httpRequest Js.t -> opt_params Js.t -> unit Js.meth
+  method execute_ : ('a, 'b -> 'c -> unit) Js.meth_callback -> 'd Js.meth
 end
 
 let new_http_batch () : httpBatch Js.t =
