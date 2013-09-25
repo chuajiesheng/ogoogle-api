@@ -5,7 +5,7 @@ A OCaml binding for [google-api-javascript-client](https://developers.google.com
 done via [Js_of_OCaml](http://ocsigen.org/js_of_ocaml) library
 
 ##Installation
-    make install
+    make; make install
 
 ##Dependency
 1. lwt ( >= 2.4 )
