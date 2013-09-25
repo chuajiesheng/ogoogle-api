@@ -34,3 +34,4 @@ See [examples](https://github.com/chuajiesheng/ogoogle-api-examples) repository
 ##Notes
 1. If you encounter any issue during the build process, try "make distclean" to update the .depend files.
 2. As the library currently bind the basic authentication function, API-specific function would still need to be done via `Js.Unsafe.fun_call`
+3. At the time of the writing, the API by Google is still in beta, in a issue of a break, please raise a issue regarding it.
