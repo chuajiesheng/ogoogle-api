@@ -1,6 +1,5 @@
 #ogoogle-api
 
-
 A OCaml binding for [google-api-javascript-client](https://developers.google.com/api-client-library/javascript/)
 done via [Js_of_OCaml](http://ocsigen.org/js_of_ocaml) library
 
@@ -25,7 +24,6 @@ Link to .JS
 
     <script src="https://apis.google.com/js/client.js"></script>
     <script src="example.js"></script>
-
 
 ##Example
 There is a example for every method present in the binding.
